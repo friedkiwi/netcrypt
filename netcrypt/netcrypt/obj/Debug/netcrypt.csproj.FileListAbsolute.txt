@@ -1,0 +1,7 @@
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\obj\Debug\netcrypt.csprojResolveAssemblyReference.cache
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\obj\Debug\netcrypt.Properties.Resources.resources
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\obj\Debug\netcrypt.csproj.GenerateResource.Cache
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\bin\Debug\netcrypt.dll
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\bin\Debug\netcrypt.pdb
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\obj\Debug\netcrypt.dll
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\netcrypt\obj\Debug\netcrypt.pdb

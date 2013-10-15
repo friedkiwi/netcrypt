@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stub", "stub\stub.csproj", "{B1FA79EA-6C5A-422F-BD84-C7F96AEFFCA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netcrypt", "netcrypt\netcrypt.csproj", "{6D18501B-2516-4FC3-816E-775D71AB923A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B1FA79EA-6C5A-422F-BD84-C7F96AEFFCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1FA79EA-6C5A-422F-BD84-C7F96AEFFCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1FA79EA-6C5A-422F-BD84-C7F96AEFFCA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D18501B-2516-4FC3-816E-775D71AB923A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D18501B-2516-4FC3-816E-775D71AB923A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D18501B-2516-4FC3-816E-775D71AB923A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D18501B-2516-4FC3-816E-775D71AB923A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
