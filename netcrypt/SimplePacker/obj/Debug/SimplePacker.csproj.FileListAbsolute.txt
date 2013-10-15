@@ -1,0 +1,10 @@
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\bin\Debug\SimplePacker.exe
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\bin\Debug\SimplePacker.pdb
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\bin\Debug\netcrypt.dll
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\bin\Debug\netcrypt.pdb
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\obj\Debug\SimplePacker.csprojResolveAssemblyReference.cache
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\obj\Debug\SimplePacker.Form1.resources
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\obj\Debug\SimplePacker.Properties.Resources.resources
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\obj\Debug\SimplePacker.csproj.GenerateResource.Cache
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\obj\Debug\SimplePacker.exe
+D:\Users\axqix\Documents\GitHub\netcrypt\netcrypt\SimplePacker\obj\Debug\SimplePacker.pdb

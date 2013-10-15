@@ -3,7 +3,9 @@ using System.Text;
 using Microsoft.CSharp;
 using System.IO;
 using System.Security.Cryptography;
+using System.Reflection;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 
 namespace Netcrypt
 {
@@ -29,8 +31,12 @@ namespace Netcrypt
             string app = "";
 
             MemoryStream memoryStream = new MemoryStream();
+
+            rijndael.Padding = PaddingMode.ISO10126;
+
             CryptoStream cryptoStream = new CryptoStream(memoryStream, rijndael.CreateEncryptor(), CryptoStreamMode.Write);
             cryptoStream.Write(assembly, 0, assembly.Length);
+            cryptoStream.FlushFinalBlock();
             cryptoStream.Flush();
             memoryStream.Seek(0, SeekOrigin.Begin);
             app = Convert.ToBase64String(memoryStream.ToArray());
@@ -39,24 +45,47 @@ namespace Netcrypt
 
             string csharpcode = netcrypt.Properties.Resources.StubCode;
 
-            csharpcode.Replace("%KEY%", key);
-            csharpcode.Replace("%IV%", iv);
-            csharpcode.Replace("%PROGRAM%", app);
+            csharpcode = csharpcode.Replace("%KEY%", key);
+            csharpcode = csharpcode.Replace("%IV%", iv);
+            csharpcode = csharpcode.Replace("%PROGRAM%", app);
+
+            Assembly orig = Assembly.Load(assembly);
+            
+
+
 
             CSharpCodeProvider codeProvider = new CSharpCodeProvider();
-            ICodeCompiler compiler = codeProvider.CreateCompiler();
+            
+            
 
             CompilerParameters parameters = new CompilerParameters();
-            parameters.GenerateInMemory = true;
+
+            parameters.CompilerOptions = "/target:winexe";
+
+            AssemblyName[] names = orig.GetReferencedAssemblies();
+
+            foreach (AssemblyName name in names)
+            {
+                if (name.Name.Contains("System.") ||
+                    name.Name.Contains("Microsoft."))
+                    parameters.ReferencedAssemblies.Add(name.Name + ".dll");
+            }
+
+            string tempFile = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".exe";
+            
             parameters.GenerateExecutable = true;
-            parameters.OutputAssembly = "Packed.exe";
+            parameters.OutputAssembly = tempFile;
 
-            CompilerResults results = compiler.CompileAssemblyFromSource(parameters, csharpcode);
-
+            CompilerResults results = codeProvider.CompileAssemblyFromSource(parameters, csharpcode);
+            
             try {
                 FileStream fs = results.CompiledAssembly.GetFiles()[0];
                 byte[] barr  = new byte[fs.Length];
                 int r = fs.Read(barr, 0, barr.Length);
+                fs.Close();
+                string fileName = fs.Name;
+                fs.Dispose();
+                
                 if (r == barr.Length)
                 {
                     return barr;
@@ -66,6 +95,7 @@ namespace Netcrypt
                     return null;
                 }
             } catch {
+                
                 return null;
             }
 
