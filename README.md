@@ -13,6 +13,8 @@ The following downsides/problems are known:
 * there is no compression
 * console applications/DLLs cannot be packed.
 
+Download URL: https://github.com/friedkiwi/netcrypt/releases/tag/v1.0
+
 # Implementation
 
 The packer is implemented in a shared library called netcrypt.dll. If you reference this library you can just use the following code to pack a file:
