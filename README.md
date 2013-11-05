@@ -1,12 +1,13 @@
 # netcrypt
 A proof-of-concept packer for .NET executables, designed to provide a starting point to explain the basic principles of runtime packing.
 
-It is a full implementation of a simple .NET PE file packer, which doesn't use native code. 
+It is a full implementation of a simple .NET PE file packer, which doesn't use native code, and with (almost) no noticeable delay during the unpacking phase of the application. 
 
 It can perform the following tasks:
 * pack itself
 * packing files packed by itself (up to four layers of packing are tested)
 * automagically resolve dependencies of the packed EXE
+* target multiple .NET versions (new!)
 
 The following downsides/problems are known:
 * output files are quite big
