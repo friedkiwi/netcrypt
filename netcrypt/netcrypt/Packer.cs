@@ -10,16 +10,47 @@ using System.Collections.Generic;
 namespace Netcrypt
 {
     /// <summary>
+    /// Used to choose the .NET version used to pack the executable.
+    /// </summary>
+    public enum DotNetVersion
+    {
+        /// <summary>
+        /// Use .NET 2.0 target
+        /// </summary>
+        v2_0,
+        /// <summary>
+        /// Use .NET 3.5 target
+        /// </summary>
+        v3_5,
+        /// <summary>
+        /// Use .NET 4.0 target
+        /// </summary>
+        v4_0
+    }
+
+    /// <summary>
     /// Provides an easy-to-use interface to a software packing algorythm for .NET executables.
     /// </summary>
     public class Packer
     {
         /// <summary>
-        /// Packs the provided assembly
+        /// Packs the provided assembly using .NET 4.0 by default.
         /// </summary>
         /// <param name="assembly">A byte[] array containing the original assemly</param>
-        /// <returns>a byte[] array containing the packed assemnly</returns>
+        /// <returns>a byte[] array containing the packed assembly</returns>
+        /// 
         public static byte[] Pack(byte[] assembly)
+        {
+            return Pack(assembly, DotNetVersion.v4_0);
+        }
+
+        /// <summary>
+        /// Packs the provided assembly using the chosen .NET framework.
+        /// </summary>
+        /// <param name="assembly">A byte[] array containing the original assemly</param>
+        /// <param name="version">The version of the .NET framework used.</param>
+        /// <returns>a byte[] array containing the packed assembly</returns>
+        public static byte[] Pack(byte[] assembly, DotNetVersion version)
         {
             RijndaelManaged rijndael = new RijndaelManaged();
             rijndael.KeySize = 256;
@@ -50,11 +81,24 @@ namespace Netcrypt
             csharpcode = csharpcode.Replace("%PROGRAM%", app);
 
             Assembly orig = Assembly.Load(assembly);
-            
 
+            var providerOptions = new Dictionary<string, string>();
 
-
-            CSharpCodeProvider codeProvider = new CSharpCodeProvider();
+            switch (version)
+            {
+                case DotNetVersion.v2_0:
+                    providerOptions.Add("CompilerVersion", "v2.0");
+                    break;
+                case DotNetVersion.v3_5:
+                    providerOptions.Add("CompilerVersion", "v3.5");
+                    break;
+                case DotNetVersion.v4_0:
+                default:
+                    providerOptions.Add("CompilerVersion", "v4.0");
+                    break;
+            }
+           
+            CSharpCodeProvider codeProvider = new CSharpCodeProvider(providerOptions);
             
             
 
