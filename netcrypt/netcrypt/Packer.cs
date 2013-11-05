@@ -22,10 +22,15 @@ namespace Netcrypt
         /// Use .NET 3.5 target
         /// </summary>
         v3_5,
+        /*
         /// <summary>
         /// Use .NET 4.0 target
         /// </summary>
         v4_0
+         * 
+         * -> currently b0rked, will need investigation.
+         * 
+         */
     }
 
     /// <summary>
@@ -34,14 +39,14 @@ namespace Netcrypt
     public class Packer
     {
         /// <summary>
-        /// Packs the provided assembly using .NET 4.0 by default.
+        /// Packs the provided assembly using .NET 3.5 by default.
         /// </summary>
         /// <param name="assembly">A byte[] array containing the original assemly</param>
         /// <returns>a byte[] array containing the packed assembly</returns>
         /// 
         public static byte[] Pack(byte[] assembly)
         {
-            return Pack(assembly, DotNetVersion.v4_0);
+            return Pack(assembly, DotNetVersion.v3_5);
         }
 
         /// <summary>
@@ -86,13 +91,10 @@ namespace Netcrypt
 
             switch (version)
             {
-                case DotNetVersion.v2_0:
-                    providerOptions.Add("CompilerVersion", "v2.0");
-                    break;
                 case DotNetVersion.v3_5:
                     providerOptions.Add("CompilerVersion", "v3.5");
                     break;
-                case DotNetVersion.v4_0:
+                case DotNetVersion.v2_0:
                 default:
                     providerOptions.Add("CompilerVersion", "v4.0");
                     break;
