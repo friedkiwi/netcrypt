@@ -43,9 +43,26 @@ namespace SimplePacker
                 return;
             }
 
+            if (targetFrameworkVersion.Text == "")
+            {
+                MessageBox.Show("Please choose a target framework version first.");
+                return;
+            }
+
             try
             {
-                File.WriteAllBytes(outputFileLocationLabel.Text, Packer.Pack(File.ReadAllBytes(inputFileLocationLabel.Text)));
+                DotNetVersion version;
+                switch (targetFrameworkVersion.Text)
+                {
+                    case "3.5":
+                        version = DotNetVersion.v3_5;
+                        break;
+                    case "2.0":
+                    default:
+                        version = DotNetVersion.v2_0;
+                        break;
+                }
+                File.WriteAllBytes(outputFileLocationLabel.Text, Packer.Pack(File.ReadAllBytes(inputFileLocationLabel.Text), version));
                 MessageBox.Show("Packing completed succesfully.\n\nCross your fingers and try to execute the output file...");
             }
             catch (Exception ex)
@@ -68,6 +85,16 @@ namespace SimplePacker
             {
                 outputFileLocationLabel.Text = saveFileDialog.FileName;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            targetFrameworkVersion.SelectedIndex = 0;
+        }
+
+        private void targetFrameworkVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

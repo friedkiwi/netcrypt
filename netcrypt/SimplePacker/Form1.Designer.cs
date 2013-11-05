@@ -40,12 +40,14 @@
             this.packExecButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.targetFrameworkVersion = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // twitterLink
             // 
             this.twitterLink.AutoSize = true;
-            this.twitterLink.Location = new System.Drawing.Point(70, 71);
+            this.twitterLink.Location = new System.Drawing.Point(70, 100);
             this.twitterLink.Name = "twitterLink";
             this.twitterLink.Size = new System.Drawing.Size(56, 13);
             this.twitterLink.TabIndex = 0;
@@ -56,7 +58,7 @@
             // sourceCodeLink
             // 
             this.sourceCodeLink.AutoSize = true;
-            this.sourceCodeLink.Location = new System.Drawing.Point(132, 71);
+            this.sourceCodeLink.Location = new System.Drawing.Point(132, 100);
             this.sourceCodeLink.Name = "sourceCodeLink";
             this.sourceCodeLink.Size = new System.Drawing.Size(66, 13);
             this.sourceCodeLink.TabIndex = 1;
@@ -67,7 +69,7 @@
             // madeByLabel
             // 
             this.madeByLabel.AutoSize = true;
-            this.madeByLabel.Location = new System.Drawing.Point(13, 71);
+            this.madeByLabel.Location = new System.Drawing.Point(13, 100);
             this.madeByLabel.Name = "madeByLabel";
             this.madeByLabel.Size = new System.Drawing.Size(51, 13);
             this.madeByLabel.TabIndex = 2;
@@ -129,7 +131,7 @@
             // 
             // packExecButton
             // 
-            this.packExecButton.Location = new System.Drawing.Point(317, 66);
+            this.packExecButton.Location = new System.Drawing.Point(317, 95);
             this.packExecButton.Name = "packExecButton";
             this.packExecButton.Size = new System.Drawing.Size(75, 23);
             this.packExecButton.TabIndex = 9;
@@ -146,11 +148,35 @@
             // 
             this.saveFileDialog.Filter = ".NET executables (*.exe) |*.exe";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Target framework";
+            // 
+            // targetFrameworkVersion
+            // 
+            this.targetFrameworkVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.targetFrameworkVersion.FormattingEnabled = true;
+            this.targetFrameworkVersion.Items.AddRange(new object[] {
+            "3.5",
+            "2.0"});
+            this.targetFrameworkVersion.Location = new System.Drawing.Point(271, 65);
+            this.targetFrameworkVersion.Name = "targetFrameworkVersion";
+            this.targetFrameworkVersion.Size = new System.Drawing.Size(121, 21);
+            this.targetFrameworkVersion.TabIndex = 11;
+            this.targetFrameworkVersion.SelectedIndexChanged += new System.EventHandler(this.targetFrameworkVersion_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 98);
+            this.ClientSize = new System.Drawing.Size(404, 124);
+            this.Controls.Add(this.targetFrameworkVersion);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.packExecButton);
             this.Controls.Add(this.chooseOutputButton);
             this.Controls.Add(this.chooseInputButton);
@@ -165,7 +191,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "SimplePacker (netcrypt sample)";
+            this.Text = "SimplePacker 1.1 (netcrypt sample)";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +212,8 @@
         private System.Windows.Forms.Button packExecButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox targetFrameworkVersion;
     }
 }
 
