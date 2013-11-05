@@ -22,15 +22,12 @@ namespace Netcrypt
         /// Use .NET 3.5 target
         /// </summary>
         v3_5,
-        /*
+
         /// <summary>
         /// Use .NET 4.0 target
         /// </summary>
         v4_0
-         * 
-         * -> currently b0rked, will need investigation.
-         * 
-         */
+        
     }
 
     /// <summary>
@@ -91,6 +88,9 @@ namespace Netcrypt
 
             switch (version)
             {
+                case DotNetVersion.v4_0:
+                    providerOptions.Add("CompilerVersion", "v4.0");
+                    break;
                 case DotNetVersion.v3_5:
                     providerOptions.Add("CompilerVersion", "v3.5");
                     break;
