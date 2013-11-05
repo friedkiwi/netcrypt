@@ -162,6 +162,7 @@
             this.targetFrameworkVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.targetFrameworkVersion.FormattingEnabled = true;
             this.targetFrameworkVersion.Items.AddRange(new object[] {
+            "4.0",
             "3.5",
             "2.0"});
             this.targetFrameworkVersion.Location = new System.Drawing.Point(271, 65);

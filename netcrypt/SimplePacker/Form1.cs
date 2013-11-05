@@ -54,6 +54,9 @@ namespace SimplePacker
                 DotNetVersion version;
                 switch (targetFrameworkVersion.Text)
                 {
+                    case "4.0":
+                        version = DotNetVersion.v4_0;
+                        break;
                     case "3.5":
                         version = DotNetVersion.v3_5;
                         break;
