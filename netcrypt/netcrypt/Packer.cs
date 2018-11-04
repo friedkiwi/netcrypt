@@ -96,7 +96,7 @@ namespace Netcrypt
                     break;
                 case DotNetVersion.v2_0:
                 default:
-                    providerOptions.Add("CompilerVersion", "v4.0");
+                    providerOptions.Add("CompilerVersion", "v2.0");
                     break;
             }
            
